@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Axon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        h2 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="icon.png" alt="Axon Logo" width="40" height="40"> <a href="index.html"
+                    style="color: white; text-decoration: none;">Axon</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+            </div>
+        </nav>
+
+        <div class="privacy-content">
+            <h1>Privacy Policy</h1>
+            <p style="color: var(--text-muted); font-style: italic;">Last Updated: January 12, 2026</p>
+
+            <p><strong>Ask AI - SCreen Assistant</strong> ("we", "our", or "us") is committed to protecting your
+                privacy. This Privacy Policy explains how our Chrome extension processes your information.</p>
+
+            <h2>1. Information Collection and Use</h2>
+            <ul>
+                <li><strong>User Input & Screen Data</strong>: When you trigger the extension, we capture the selected
+                    text or a screenshot of your active tab.</li>
+                <li><strong>Personalization Data</strong>: We may store user preferences, facts, and professional
+                    details (your "Digital Twin") derived from your interactions to improve response relevance.</li>
+                <li><strong>Processing</strong>: This data is sent securely to <strong>Groq API</strong> for processing.
+                </li>
+                <li><strong>No External Storage</strong>: We do <strong>not</strong> store, log, or share your screen
+                    data, text selections, profile data, or API keys on our servers. All data is stored locally in your
+                    browser (<code>chrome.storage.sync</code>) or processed ephemerally.</li>
+            </ul>
+
+            <h2>2. Third-Party Services</h2>
+            <p>We use <strong>Groq Cloud</strong> as our primary AI inference provider. Please refer to <a
+                    href="https://groq.com/privacy-policy/" style="color: var(--primary);">Groq's Privacy Policy</a> for
+                details on how they handle API request data.</p>
+
+            <h2>3. API Keys</h2>
+            <p>The extension allows you to bring your own API Key or use a default configuration. In both cases, the key
+                is stored locally on your device using Chrome's secure storage API (<code>chrome.storage.sync</code>).
+                It is never transmitted to us or any third party other than the Groq API for authentication.</p>
+
+            <h2>4. Changes to This Policy</h2>
+            <p>We may update this policy from time to time. Any changes will be posted on this page.</p>
+
+            <h2>5. Contact</h2>
+            <p>If you have questions about this policy, please contact us via the Chrome Web Store support page or our
+                GitHub repository.</p>
+        </div>
+    </div>
+</body>
+
+</html>
