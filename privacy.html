@@ -6,54 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Axon</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="favicon.ico">
-    <style>
-        .privacy-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        h2 {
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            color: var(--text-muted);
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        p {
-            margin-bottom: 20px;
-            color: var(--text-muted);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
-        <nav>
+    <!-- Navigation -->
+    <nav class="animate-fade-in">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
             <div class="logo">
-                <img src="icon.png" alt="Axon Logo" width="40" height="40"> <a href="index.html"
-                    style="color: white; text-decoration: none;">Axon</a>
+                <img src="icon.png" alt="Axon Logo" width="40" height="40">
+                <a href="index.html" style="color: white; text-decoration: none;">Axon</a>
             </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
+    <div class="container animate-slide-up">
         <div class="privacy-content">
             <h1>Privacy Policy</h1>
-            <p style="color: var(--text-muted); font-style: italic;">Last Updated: January 12, 2026</p>
+            <p class="last-updated">Last Updated: January 12, 2026</p>
 
-            <p><strong>Ask AI - SCreen Assistant</strong> ("we", "our", or "us") is committed to protecting your
+            <p><strong>Ask AI - Screen Assistant</strong> ("we", "our", or "us") is committed to protecting your
                 privacy. This Privacy Policy explains how our Chrome extension processes your information.</p>
 
             <h2>1. Information Collection and Use</h2>
@@ -71,7 +49,7 @@
 
             <h2>2. Third-Party Services</h2>
             <p>We use <strong>Groq Cloud</strong> as our primary AI inference provider. Please refer to <a
-                    href="https://groq.com/privacy-policy/" style="color: var(--primary);">Groq's Privacy Policy</a> for
+                    href="https://groq.com/privacy-policy/" class="privacy-link">Groq's Privacy Policy</a> for
                 details on how they handle API request data.</p>
 
             <h2>3. API Keys</h2>
@@ -87,6 +65,18 @@
                 GitHub repository.</p>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="https://www.linkedin.com/in/uttam-gupta-a185a8239/" target="_blank">Support</a>
+                <a href="https://github.com/UTTAMGUPTA2712" target="_blank">GitHub</a>
+            </div>
+            <p>&copy; 2026 Axon. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
