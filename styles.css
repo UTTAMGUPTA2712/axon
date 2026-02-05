@@ -2,7 +2,7 @@
     --bg-dark: #0f111a;
     --bg-card: rgba(26, 29, 45, 0.6);
     --primary: #00ff9d;
-    --secondary: #bd00ff;
+    --secondary: #d966ff;
     --text-main: #ffffff;
     --text-muted: #a0a0b0;
     --glass: rgba(255, 255, 255, 0.08);
@@ -101,6 +101,7 @@ h4 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 0 30px rgba(217, 102, 255, 0.3);
 }
 
 /* Layout */
@@ -220,6 +221,7 @@ nav {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 80px;
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
 }
 
 .feature-grid {
