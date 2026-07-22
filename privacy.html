@@ -29,9 +29,9 @@
     <div class="container animate-slide-up">
         <div class="privacy-content">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last Updated: January 12, 2026</p>
+            <p class="last-updated">Last Updated: July 22, 2026</p>
 
-            <p><strong>Ask AI - Screen Assistant</strong> ("we", "our", or "us") is committed to protecting your
+            <p><strong>Axon - Screen Assistant</strong> ("we", "our", or "us") is committed to protecting your
                 privacy. This Privacy Policy explains how our Chrome extension processes your information.</p>
 
             <h2>1. Information Collection and Use</h2>
@@ -40,22 +40,31 @@
                     text or a screenshot of your active tab.</li>
                 <li><strong>Personalization Data</strong>: We may store user preferences, facts, and professional
                     details (your "Digital Twin") derived from your interactions to improve response relevance.</li>
-                <li><strong>Processing</strong>: This data is sent securely to <strong>Groq API</strong> for processing.
-                </li>
+                <li><strong>Processing</strong>: This data is sent directly from your browser to whichever AI
+                    provider you've configured for that feature, using your own API key.</li>
                 <li><strong>No External Storage</strong>: We do <strong>not</strong> store, log, or share your screen
-                    data, text selections, profile data, or API keys on our servers. All data is stored locally in your
-                    browser (<code>chrome.storage.sync</code>) or processed ephemerally.</li>
+                    data, text selections, profile data, or API keys on our servers. Axon has no backend of its own —
+                    all data is stored locally in your browser (<code>chrome.storage.sync</code>) or processed
+                    ephemerally by the provider you chose.</li>
             </ul>
 
             <h2>2. Third-Party Services</h2>
-            <p>We use <strong>Groq Cloud</strong> as our primary AI inference provider. Please refer to <a
-                    href="https://groq.com/privacy-policy/" class="privacy-link">Groq's Privacy Policy</a> for
-                details on how they handle API request data.</p>
+            <p>Axon supports multiple AI providers, and you choose which one handles each feature (Chat, Vision, the
+                intent router, and memory extraction). Depending on your configuration, requests may go to:</p>
+            <ul>
+                <li><strong>Groq</strong> — see <a href="https://groq.com/privacy-policy/"
+                        class="privacy-link" target="_blank" rel="noopener">Groq's Privacy Policy</a></li>
+                <li><strong>OpenAI</strong> — see <a href="https://openai.com/policies/privacy-policy"
+                        class="privacy-link" target="_blank" rel="noopener">OpenAI's Privacy Policy</a></li>
+                <li><strong>Google Gemini</strong> — see <a href="https://policies.google.com/privacy"
+                        class="privacy-link" target="_blank" rel="noopener">Google's Privacy Policy</a></li>
+            </ul>
+            <p>Only the provider(s) you've actually configured a key for ever receive your data.</p>
 
             <h2>3. API Keys</h2>
-            <p>The extension allows you to bring your own API Key or use a default configuration. In both cases, the key
-                is stored locally on your device using Chrome's secure storage API (<code>chrome.storage.sync</code>).
-                It is never transmitted to us or any third party other than the Groq API for authentication.</p>
+            <p>Axon is bring-your-own-key: there is no shared or default key. Each key you add is stored locally on
+                your device using Chrome's secure storage API (<code>chrome.storage.sync</code>). It is never
+                transmitted to us or anyone other than the provider it belongs to, for authentication.</p>
 
             <h2>4. Changes to This Policy</h2>
             <p>We may update this policy from time to time. Any changes will be posted on this page.</p>

@@ -1,6 +1,6 @@
 # Axon: The Cognitive Browser Assistant
 
-**Axon** is an intelligent Chrome, Firefox & Edge extension that acts as your browser's "Digital Twin". It integrates state-of-the-art AI (Llama-3 via Groq) to see what you see, understand your context, and automate tedious web tasks.
+**Axon** is an intelligent Chrome, Firefox & Edge extension that acts as your browser's "Digital Twin". It integrates state-of-the-art AI (bring your own key — Gemini, Groq, or OpenAI) to see what you see, understand your context, and automate tedious web tasks.
 
 ## 🚀 Features
 
@@ -28,7 +28,7 @@ A beautiful, non-intrusive chat overlay that floats above your web page.
 
 1.  **Clone this repository**:
     ```bash
-    git clone https://github.com/yourusername/axon-assistant.git
+    git clone https://github.com/UTTAMGUPTA2712/axon-ai.git
     ```
 2.  **Open Chrome Extensions**:
     -   Navigate to `chrome://extensions/`
@@ -41,8 +41,8 @@ A beautiful, non-intrusive chat overlay that floats above your web page.
 
 1.  Click the **Axon Icon** in your toolbar.
 2.  Select **Settings** (Gear Icon).
-3.  **API Key**: Enter your Groq API Key (supports Llama-3-70b).
-    -   *Don't have one? Get it free at [console.groq.com](https://console.groq.com)*
+3.  **AI Provider**: Pick Gemini, Groq, or OpenAI, add your API key, and hit "Fetch Models" to choose which model powers each feature (Chat, Vision, Intent Router, Memory).
+    -   *Free keys: [Gemini](https://aistudio.google.com/apikey) · [Groq](https://console.groq.com/keys) · [OpenAI](https://platform.openai.com/api-keys)*
 4.  **Profile**: Add your Role, About Me, and any custom Key-Value facts (e.g., Portfolio URL, LinkedIn) to power the Autofill engine.
 
 ## ⌨️ Usage
