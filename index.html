@@ -4,171 +4,483 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axon - Your Second Brain for the Web</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Axon — Your Vision & Intelligence Layer for the Web</title>
+    <meta name="description" content="Axon is an AI screen assistant browser extension. Analyze images, summarize long pages, contextual autofill, and BYOK with Gemini, Groq, or OpenAI.">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="animate-fade-in">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-            <div class="logo">
-                <img src="icon.png" alt="Axon Logo" width="40" height="40">
-                <a href="index.html" style="color: white; text-decoration: none;">Axon</a>
-            </div>
-            <div class="nav-links">
-                <a href="#how-it-works">How it Works</a>
+
+    <!-- Sticky Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="icon.png" alt="Axon Logo" width="36" height="36">
+                <span>Axon</span>
+            </a>
+
+            <div class="nav-links" id="nav-links">
                 <a href="#features">Features</a>
-                <a href="privacy.html">Privacy</a>
+                <a href="#how-it-works">How it Works</a>
+                <a href="#security">Privacy & Architecture</a>
+                <a href="#faq">FAQ</a>
+                <a href="privacy.html">Privacy Policy</a>
                 <a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en"
-                    class="btn-cta" style="color: #0f111a;">Add to Chrome</a>
+                    class="btn-primary" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line x1="21.17" y1="8" x2="12" y2="8"></line>
+                        <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
+                        <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
+                    </svg>
+                    Add to Chrome — Free
+                </a>
             </div>
+
+            <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content animate-slide-up">
-                <h1>Your Web, <br><span class="gradient-text">Understood.</span></h1>
-                <p>Don't just browse—analyze. Axon adds a "Vision" layer to your browser, letting you ask questions
-                    about images, summarize long pages, and autofill forms with your personal context.</p>
-                <div class="cta-group">
-                    <a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en"
-                        class="btn-cta">Add to Chrome — It's Free</a>
+    <!-- Hero Section -->
+    <section class="hero container">
+        <div class="hero-content reveal">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                <span>NEW: Powered by Gemini 2.0 & Groq AI</span>
+            </div>
+
+            <h1>Your Web, <br><span class="gradient-text">Understood Intelligently.</span></h1>
+
+            <p>Don't just browse — analyze. Axon adds a powerful "Vision" layer to your browser, letting you analyze images, summarize lengthy pages, and autofill forms with your personal digital twin context.</p>
+
+            <div class="hero-ctas">
+                <a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en"
+                    class="btn-primary" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Install Chrome Extension
+                </a>
+                <a href="https://github.com/UTTAMGUPTA2712" class="btn-secondary" target="_blank" rel="noopener">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    GitHub Repository
+                </a>
+            </div>
+
+            <div class="hero-metrics">
+                <div class="metric-item">
+                    <span class="metric-val">100%</span>
+                    <span class="metric-lbl">Local Storage Privacy</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-val">BYOK</span>
+                    <span class="metric-lbl">Gemini · Groq · OpenAI</span>
+                </div>
+                <div class="metric-item">
+                    <span class="metric-val">0ms</span>
+                    <span class="metric-lbl">Cloud Latency Overhead</span>
                 </div>
             </div>
-            <div class="hero-image animate-slide-up delay-1">
-                <img src="assets/hero.png" alt="Axon Interface Mockup">
-            </div>
-        </section>
+        </div>
 
-        <!-- How It Works Section -->
-        <section id="how-it-works" class="how-it-works">
-            <h2 class="section-title animate-slide-up">How it Works</h2>
+        <div class="hero-mockup-container reveal">
+            <div class="hero-mockup-wrapper">
+                <div class="mockup-header">
+                    <span class="mockup-dot dot-red"></span>
+                    <span class="mockup-dot dot-yellow"></span>
+                    <span class="mockup-dot dot-green"></span>
+                    <span class="mockup-url">axon-assistant // vision-active</span>
+                </div>
+                <div class="mockup-body">
+                    <img src="assets/hero.png" alt="Axon Interface Mockup">
+                </div>
+            </div>
+
+            <div class="floating-card floating-card-1">
+                <div class="floating-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <div class="floating-info">
+                    <p>Vision AI OCR</p>
+                    <span>Instant visual chart & page analysis</span>
+                </div>
+            </div>
+
+            <div class="floating-card floating-card-2">
+                <div class="floating-icon" style="background: rgba(139, 92, 246, 0.15); color: #8b5cf6;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <div class="floating-info">
+                    <p>Zero Backend DB</p>
+                    <span>Keys stored in chrome.storage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider Showcase Banner -->
+    <section class="providers-section">
+        <div class="container">
+            <p class="providers-title">Supported AI Infrastructure & Ecosystem</p>
+            <div class="providers-grid">
+                <div class="provider-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
+                    </svg>
+                    Google Gemini
+                </div>
+                <div class="provider-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
+                    </svg>
+                    Groq Llama 3
+                </div>
+                <div class="provider-pill">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    OpenAI GPT-4o
+                </div>
+                <div class="provider-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Chrome Extension V3
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Features Section -->
+    <section id="features" class="features-section container">
+        <div class="section-header reveal">
+            <span class="section-tag">Core Capabilities</span>
+            <h2>Supercharge Your Web Browsing</h2>
+            <p>Axon acts as your second brain, seamless context layer, and vision assistant right inside Chrome.</p>
+        </div>
+
+        <div class="tab-nav reveal">
+            <button class="tab-btn active" data-tab="vision">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                Vision AI Analysis
+            </button>
+            <button class="tab-btn" data-tab="autofill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                </svg>
+                Contextual Autofill
+            </button>
+            <button class="tab-btn" data-tab="memory">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                </svg>
+                Adaptive Memory
+            </button>
+        </div>
+
+        <div class="tab-content reveal">
+            <!-- Panel 1: Vision -->
+            <div class="tab-panel active" id="tab-vision">
+                <div class="panel-text">
+                    <h3>See & Reason Over Any Tab</h3>
+                    <p>Axon extracts visual insights from your screen. Right-click any region, element, or entire website to synthesize content instantly.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Explain complex charts, diagrams, and UI mockups</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Debug UI layout or error trace screenshots</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Summarize long research papers and blog posts</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="assets/hero.png" alt="Vision AI Feature Preview">
+                </div>
+            </div>
+
+            <!-- Panel 2: Autofill -->
+            <div class="tab-panel" id="tab-autofill">
+                <div class="panel-text">
+                    <h3>Intelligent Form Assistant</h3>
+                    <p>No more tedious manual copy-pasting. Axon understands field context and fills job applications, registration forms, and surveys with your persona.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Smart intent routing for ambiguously named fields</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Custom Digital Twin profile tailoring</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Works on dynamic React, Vue, and traditional forms</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="assets/autofill.png" alt="Autofill Feature Preview">
+                </div>
+            </div>
+
+            <!-- Panel 3: Memory -->
+            <div class="tab-panel" id="tab-memory">
+                <div class="panel-text">
+                    <h3>Zero-Cloud Local Memory</h3>
+                    <p>Mention a detail once — your role, portfolio links, or preferred formatting — and Axon remembers it locally across every session.</p>
+                    <ul class="feature-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>100% encrypted in chrome.storage.sync</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>No backend tracking or third-party database logs</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Instant context retrieval for every query</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-visual">
+                    <img src="assets/memory.png" alt="Memory Feature Preview">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="steps-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Simple Setup</span>
+                <h2>Up and Running in 60 Seconds</h2>
+                <p>No complex onboarding, no server setup. Bring your API key and take full control of your AI workflow.</p>
+            </div>
+
             <div class="steps-grid">
-                <div class="step-card animate-slide-up delay-1">
-                    <div class="step-number">1</div>
+                <div class="step-card reveal">
+                    <div class="step-number-badge">01</div>
                     <h3>Install Extension</h3>
-                    <p style="color: var(--text-muted)">Get Axon from the Chrome Web Store and pin it to your toolbar.
-                    </p>
+                    <p>Add Axon to your Chrome toolbar with one click directly from the official Chrome Web Store.</p>
                 </div>
-                <div class="step-card animate-slide-up delay-2">
-                    <div class="step-number">2</div>
-                    <h3>Bring Your Own Key</h3>
-                    <p style="color: var(--text-muted)">Pick your favorite AI — Gemini, Groq, or OpenAI — and drop in
-                        a free API key. Your key, your data, your choice.</p>
+
+                <div class="step-card reveal">
+                    <div class="step-number-badge">02</div>
+                    <h3>Add API Key</h3>
+                    <p>Enter your free API key from Google Gemini, Groq, or OpenAI. Your key stays encrypted on your device.</p>
                 </div>
-                <div class="step-card animate-slide-up delay-3">
-                    <div class="step-number">3</div>
+
+                <div class="step-card reveal">
+                    <div class="step-number-badge">03</div>
                     <h3>Right-Click Anything</h3>
-                    <p style="color: var(--text-muted)">Select text, images, or the whole page and choose "Axon:
-                        Assist".</p>
+                    <p>Highlight text, capture screen regions, or trigger Axon from the context menu or floating widget.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <h2 class="section-title animate-slide-up">Powerful Features</h2>
-            <div class="feature-grid">
-                <!-- Feature 1: Vision -->
-                <div class="feature-card animate-slide-up delay-1">
-                    <div class="feature-img-wrapper">
-                        <img src="assets/hero.png" alt="Vision AI" style="object-position: top right;">
+    <!-- Security & Architecture Section -->
+    <section id="security" class="security-section container">
+        <div class="security-card reveal">
+            <div class="security-text">
+                <span class="section-tag">Privacy First Architecture</span>
+                <h2>Your Keys. Your Data. Your Choice.</h2>
+                <p>Axon was engineered with a strict privacy-first mindset. Unlike traditional browser assistants, Axon operates with zero intermediary backend servers.</p>
+                
+                <div class="security-badges">
+                    <div class="sec-badge">
+                        <div class="sec-badge-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                        </div>
+                        <h4>Local Key Vault</h4>
+                        <p>Stored in <code>chrome.storage</code></p>
                     </div>
-                    <div class="feature-content">
-                        <h3>Vision AI Analysis</h3>
-                        <p>Axon sees what you see. Ask it to explain complex charts, UI designs, or error messages
-                            directly from your screen — or right-click anywhere to summarize the whole page.</p>
-                    </div>
-                </div>
 
-                <!-- Feature 2: Autofill -->
-                <div class="feature-card animate-slide-up delay-2">
-                    <div class="feature-img-wrapper">
-                        <img src="assets/autofill.png" alt="Autofill Magic">
-                    </div>
-                    <div class="feature-content">
-                        <h3>Contextual Autofill</h3>
-                        <p>Axon uses your "Digital Twin" profile to intelligently fill forms, even when fields are
-                            ambiguously named.</p>
-                    </div>
-                </div>
-
-                <!-- Feature 3: Memory -->
-                <div class="feature-card animate-slide-up delay-3">
-                    <div class="feature-img-wrapper">
-                        <img src="assets/memory.png" alt="Adaptive Memory">
-                    </div>
-                    <div class="feature-content">
-                        <h3>Adaptive Memory</h3>
-                        <p>Mention a detail once — your role, your email, your preferences — and Axon remembers it for
-                            every form and conversation after.</p>
+                    <div class="sec-badge">
+                        <div class="sec-badge-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+                            </svg>
+                        </div>
+                        <h4>No Telemetry</h4>
+                        <p>Zero tracking or log collectors</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Trust Section -->
-        <section class="trust-section animate-slide-up">
-            <div class="container">
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <span class="trust-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="4" y="10" width="16" height="10" rx="2"></rect>
-                                <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-                            </svg>
-                        </span>
-                        <h4>Local Storage</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted)">No Cloud Database</p>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
-                                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
-                                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
-                                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
-                            </svg>
-                        </span>
-                        <h4>Multi-Provider</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted)">Gemini · Groq · OpenAI</p>
-                    </div>
-                    <div class="trust-item">
-                        <span class="trust-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="16 18 22 12 16 6"></polyline>
-                                <polyline points="8 6 2 12 8 18"></polyline>
-                            </svg>
-                        </span>
-                        <h4>Open Source</h4>
-                        <p style="font-size: 0.9rem; color: var(--text-muted)">Transparent Codebase</p>
-                    </div>
+            <div class="panel-visual">
+                <img src="assets/memory.png" alt="Architecture Diagram">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="faq-section container">
+        <div class="section-header reveal">
+            <span class="section-tag">Got Questions?</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Everything you need to know about Axon, privacy, and API key management.</p>
+        </div>
+
+        <div class="faq-list reveal">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is Axon free to use?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    Yes! Axon is 100% free and open-source. You bring your own API key from providers like Google Gemini (which offers generous free tiers), Groq, or OpenAI.
                 </div>
             </div>
-        </section>
-    </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Where are my API keys stored?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    Your API keys are stored locally inside Chrome's isolated <code>chrome.storage.sync</code> storage. They never touch any middleman servers and are sent only directly to the AI provider endpoint you configured.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Which AI models does Axon support?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    Axon currently supports Google Gemini (Gemini 2.0 Flash / Pro), Groq (Llama 3.3 70B), and OpenAI (GPT-4o / GPT-4o-mini). You can assign different models for Chat, Vision, and Intent routing.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Does Axon track my browsing history or screen data?</span>
+                    <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+                <div class="faq-answer">
+                    No. Axon only captures active tab screen content or selected text when you explicitly invoke the assistant via shortcut, context menu, or action button.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final High-Impact CTA Banner -->
+    <section class="cta-section container">
+        <div class="cta-card reveal">
+            <h2 class="gradient-text">Ready to Upgrade Your Web Experience?</h2>
+            <p>Install Axon today and start reasoning over your browser with instant AI vision and smart memory.</p>
+            <a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en"
+                class="btn-primary" target="_blank" rel="noopener">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 8 12 12 16 14"></polyline>
+                </svg>
+                Add to Chrome — It's Free
+            </a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="https://www.linkedin.com/in/uttam-gupta-a185a8239/" target="_blank">Support</a>
-                <a href="https://github.com/UTTAMGUPTA2712" target="_blank">GitHub</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="icon.png" alt="Axon Logo" width="32" height="32">
+                        <span>Axon</span>
+                    </a>
+                    <p>Your vision layer and digital twin assistant for the web. Powered by BYOK multi-provider AI.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#security">Architecture</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal & Trust</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en" target="_blank" rel="noopener">Chrome Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Developer</h4>
+                    <ul>
+                        <li><a href="https://github.com/UTTAMGUPTA2712" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/uttam-gupta-a185a8239/" target="_blank" rel="noopener">LinkedIn / Support</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>&copy; 2026 Axon. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Axon. All rights reserved.</p>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 
 </html>

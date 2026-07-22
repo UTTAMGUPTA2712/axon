@@ -4,88 +4,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Axon</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Privacy Policy — Axon Screen Assistant</title>
+    <meta name="description" content="Axon Privacy Policy detailing zero backend storage, local chrome.storage key safety, and provider data processing.">
+    <link rel="icon" href="favicon.ico">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="animate-fade-in">
-        <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
-            <div class="logo">
-                <img src="icon.png" alt="Axon Logo" width="40" height="40">
-                <a href="index.html" style="color: white; text-decoration: none;">Axon</a>
-            </div>
-            <div class="nav-links">
+
+    <!-- Sticky Navigation -->
+    <nav class="scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="icon.png" alt="Axon Logo" width="36" height="36">
+                <span>Axon</span>
+            </a>
+
+            <div class="nav-links" id="nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#how-it-works">How it Works</a>
                 <a href="index.html">Home</a>
+                <a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en"
+                    class="btn-primary" target="_blank" rel="noopener">Add to Chrome</a>
             </div>
+
+            <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <div class="container animate-slide-up">
-        <div class="privacy-content">
+    <!-- Privacy Content -->
+    <div class="privacy-wrapper container">
+        <div class="privacy-card reveal">
             <h1>Privacy Policy</h1>
             <p class="last-updated">Last Updated: July 22, 2026</p>
 
-            <p><strong>Axon - Screen Assistant</strong> ("we", "our", or "us") is committed to protecting your
-                privacy. This Privacy Policy explains how our Chrome extension processes your information.</p>
+            <p><strong>Axon — Screen Assistant</strong> ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how our Chrome extension processes your information with zero cloud backend storage.</p>
 
             <h2>1. Information Collection and Use</h2>
             <ul>
-                <li><strong>User Input & Screen Data</strong>: When you trigger the extension, we capture the selected
-                    text or a screenshot of your active tab.</li>
-                <li><strong>Personalization Data</strong>: We may store user preferences, facts, and professional
-                    details (your "Digital Twin") derived from your interactions to improve response relevance.</li>
-                <li><strong>Processing</strong>: This data is sent directly from your browser to whichever AI
-                    provider you've configured for that feature, using your own API key.</li>
-                <li><strong>No External Storage</strong>: We do <strong>not</strong> store, log, or share your screen
-                    data, text selections, profile data, or API keys on our servers. Axon has no backend of its own —
-                    all data is stored locally in your browser (<code>chrome.storage.sync</code>) or processed
-                    ephemerally by the provider you chose.</li>
+                <li><strong>User Input & Screen Data</strong>: When you trigger the extension, we capture the selected text or a screenshot of your active tab.</li>
+                <li><strong>Personalization Data</strong>: We may store user preferences, facts, and professional details (your "Digital Twin") derived from your interactions to improve response relevance.</li>
+                <li><strong>Processing</strong>: This data is sent directly from your browser to whichever AI provider you've configured for that feature, using your own API key.</li>
+                <li><strong>No External Storage</strong>: We do <strong>not</strong> store, log, or share your screen data, text selections, profile data, or API keys on our servers. Axon has no backend of its own — all data is stored locally in your browser (<code>chrome.storage.sync</code>) or processed ephemerally by the provider you chose.</li>
             </ul>
 
             <h2>2. Third-Party Services</h2>
-            <p>Axon supports multiple AI providers, and you choose which one handles each feature (Chat, Vision, the
-                intent router, and memory extraction). Depending on your configuration, requests may go to:</p>
+            <p>Axon supports multiple AI providers, and you choose which one handles each feature (Chat, Vision, the intent router, and memory extraction). Depending on your configuration, requests may go to:</p>
             <ul>
-                <li><strong>Groq</strong> — see <a href="https://groq.com/privacy-policy/"
-                        class="privacy-link" target="_blank" rel="noopener">Groq's Privacy Policy</a></li>
-                <li><strong>OpenAI</strong> — see <a href="https://openai.com/policies/privacy-policy"
-                        class="privacy-link" target="_blank" rel="noopener">OpenAI's Privacy Policy</a></li>
-                <li><strong>Google Gemini</strong> — see <a href="https://policies.google.com/privacy"
-                        class="privacy-link" target="_blank" rel="noopener">Google's Privacy Policy</a></li>
+                <li><strong>Groq</strong> — see <a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener" style="color: var(--primary);">Groq's Privacy Policy</a></li>
+                <li><strong>OpenAI</strong> — see <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener" style="color: var(--primary);">OpenAI's Privacy Policy</a></li>
+                <li><strong>Google Gemini</strong> — see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--primary);">Google's Privacy Policy</a></li>
             </ul>
             <p>Only the provider(s) you've actually configured a key for ever receive your data.</p>
 
             <h2>3. API Keys</h2>
-            <p>Axon is bring-your-own-key: there is no shared or default key. Each key you add is stored locally on
-                your device using Chrome's secure storage API (<code>chrome.storage.sync</code>). It is never
-                transmitted to us or anyone other than the provider it belongs to, for authentication.</p>
+            <p>Axon is bring-your-own-key: there is no shared or default key. Each key you add is stored locally on your device using Chrome's secure storage API (<code>chrome.storage.sync</code>). It is never transmitted to us or anyone other than the provider it belongs to, for authentication.</p>
 
             <h2>4. Changes to This Policy</h2>
             <p>We may update this policy from time to time. Any changes will be posted on this page.</p>
 
             <h2>5. Contact</h2>
-            <p>If you have questions about this policy, please contact us via the Chrome Web Store support page or our
-                GitHub repository.</p>
+            <p>If you have questions about this policy, please contact us via the Chrome Web Store support page or our GitHub repository.</p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="https://www.linkedin.com/in/uttam-gupta-a185a8239/" target="_blank">Support</a>
-                <a href="https://github.com/UTTAMGUPTA2712" target="_blank">GitHub</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <img src="icon.png" alt="Axon Logo" width="32" height="32">
+                        <span>Axon</span>
+                    </a>
+                    <p>Your vision layer and digital twin assistant for the web. Powered by BYOK multi-provider AI.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="index.html#security">Architecture</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Legal & Trust</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en" target="_blank" rel="noopener">Chrome Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Developer</h4>
+                    <ul>
+                        <li><a href="https://github.com/UTTAMGUPTA2712" target="_blank" rel="noopener">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/uttam-gupta-a185a8239/" target="_blank" rel="noopener">LinkedIn / Support</a></li>
+                    </ul>
+                </div>
             </div>
-            <p>&copy; 2026 Axon. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Axon. All rights reserved.</p>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>All Systems Operational</span>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 
 </html>
