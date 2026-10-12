@@ -1,0 +1,5 @@
+# Axon — https://uttamgupta2712.github.io/axon/
+User-agent: *
+Allow: /
+
+Sitemap: https://uttamgupta2712.github.io/axon/sitemap.xml
