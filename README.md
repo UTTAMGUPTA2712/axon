@@ -64,4 +64,41 @@ A beautiful, non-intrusive chat overlay that floats above your web page.
 
 ---
 
+## This repository is the marketing site
+
+Everything above describes the extension, which lives in `ask-ai/`. What is *here*
+is the static site: `index.html`, `privacy.html`, `styles.css`, `main.js` and
+`cache.js`. There is no build step — open `index.html`.
+
+`main.js` is progressive enhancement over a document that is complete without it:
+the docked panel answers a question about the chapter in view, and the sentence it
+used is marked. That link is the only motion on the page, by design.
+
+### The one network request
+
+The Plans section reads `GET /plans` from the Axon API so the page states what the
+service actually charges rather than a number copied by hand. Everything about it
+is written to fail quietly:
+
+- The rows are **in `index.html` already**. A fetch that is blocked, slow or
+  unreachable changes nothing on screen.
+- The answer is cached by `cache.js` in `localStorage` for **10 minutes**, so a
+  reader moving around the page — or coming back the same afternoon — costs one
+  request, not one per visit.
+- If a refresh fails and a cached answer is on hand, the cached one is shown with
+  a line saying so. Past 24 hours it is dropped and the static rows return.
+- The request has a 6s deadline of its own.
+
+`cache.js` is the same shape as the server's `CacheService` (`get` / `set` /
+`wrap`, one expiry per key) and survives storage being blocked or full by falling
+back to memory for the pageview.
+
+**It needs CORS.** The API only answers a browser origin listed in its
+`CORS_ORIGINS`, so the site's origin must be in that list
+(`https://uttamgupta2712.github.io`, plus whatever you serve from locally). Until
+it is, the fetch is blocked and the page shows its static rows — correct, just not
+live.
+
+---
+
 *Built with ❤️ for the future of browsing.*

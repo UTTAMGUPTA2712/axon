@@ -345,6 +345,15 @@ a {
     color: var(--ink-muted);
 }
 
+/* Said only when the plans on screen came from a previous visit rather than from the
+   API just now. Quiet by design: it qualifies the rows above, it is not a warning. */
+.plan-note {
+    margin-top: 14px;
+    font-family: var(--sans);
+    font-size: 13.5px;
+    color: var(--ink-faint);
+}
+
 code {
     font-family: var(--mono);
     font-size: 0.86em;

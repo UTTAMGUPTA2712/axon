@@ -196,6 +196,7 @@
             <a class="nav-section" href="#does">What it does</a>
             <a class="nav-section" href="#keys">Your keys</a>
             <a class="nav-section" href="#setup">Setup</a>
+            <a class="nav-section" href="#plans">Plans</a>
             <a class="nav-section" href="#questions">Questions</a>
             <a href="privacy.html">Privacy</a>
             <a class="is-install" href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm" target="_blank" rel="noopener">Add to Chrome</a>
@@ -289,6 +290,25 @@
                     Ollama or LM Studio and Axon will talk to a model running locally.</p>
             </section>
 
+            <section class="chapter" id="plans" data-turn="plans">
+                <h2>If you would rather not hold a key</h2>
+                <p>Everything above works with a key of your own and no account. An Axon account is the
+                    alternative: prompts run on our servers against a daily allowance, and the only thing
+                    you configure is which model to use.</p>
+
+                <!-- Written out in full, because the page has to say what the plans are whether or not
+                     the script below reaches the API. When it does, these rows are replaced with what
+                     the server actually offers today. -->
+                <div class="ledger" id="plan-ledger" data-plans-fallback>
+                    <div><b>Free</b><span>A daily allowance of prompts, enough to decide whether Axon is
+                            for you</span></div>
+                    <div><b>Paid</b><span>No daily limit. Current pricing is on the account page</span></div>
+                    <div><b>Your own key</b><span>Free, unlimited, and nothing you look at reaches us —
+                            the default, and what the rest of this page describes</span></div>
+                </div>
+                <p class="plan-note" id="plan-note" hidden></p>
+            </section>
+
             <section class="chapter" id="questions" data-turn="questions">
                 <h2>Questions</h2>
                 <div class="qa">
@@ -365,6 +385,7 @@
         </div>
     </footer>
 
+    <script src="cache.js"></script>
     <script src="main.js"></script>
 </body>
 

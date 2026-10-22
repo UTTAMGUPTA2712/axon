@@ -36,6 +36,14 @@
                '<p>Gemini is suggested first because it has a free tier. If you would rather nothing left your machine, the custom provider points at Ollama or LM Studio.</p>' +
                '<div class="meta">read this section · chat · llama-3.3-70b</div>'
         },
+        plans: {
+            q: 'Do I have to pay for anything?',
+            a: '<p>No. The page says a key of your own costs nothing and is the default; an account is the ' +
+               'alternative for readers who would rather not hold one.</p>' +
+               '<p>The plans beside this answer are read from the Axon API when it is reachable, so what you ' +
+               'see is what the service actually offers today.</p>' +
+               '<div class="meta">read this section · chat · llama-3.3-70b</div>'
+        },
         questions: {
             q: 'Does it track my browsing?',
             a: '<p>No. By this page\'s account Axon reads a page only when you invoke it, and asks for no browsing-history permission.</p>' +
@@ -190,4 +198,137 @@
     masthead.addEventListener('focusin', function () {
         tuck(false);
     });
+})();
+
+
+// ─── Plans ───────────────────────────────────────────────────────────────────
+// The one thing on this page that is not already in the document: what the service
+// currently charges. Read from the public GET /plans and cached, so a reader who opens
+// the page twice in an afternoon costs one request rather than two — and so the section
+// is not hostage to the API being up.
+//
+// Every failure path ends with the markup that shipped in index.html still on screen.
+// That is the rule for this file: the page is complete before the script runs, and a
+// fetch that does not come back is allowed to change nothing.
+(function () {
+    'use strict';
+
+    // Must be the deployment the account app talks to. Shares its value with the
+    // extension's AXON_API_URL by hand, because this site has no build step to read one
+    // from.
+    var API = 'https://p01--axon-server--5kpwwxtzhkp9.code.run';
+
+    // Ten minutes: long enough that a reader moving around the page costs one request,
+    // short enough that a price change is live the same morning it is made.
+    var TTL = 10 * 60 * 1000;
+    // A price older than this is not worth showing at all; the static rows are better.
+    var MAX_STALE = 24 * 60 * 60 * 1000;
+    // The request itself gets a deadline. A hung connection must not leave the section
+    // waiting for the browser's own default, which is measured in minutes.
+    var TIMEOUT = 6000;
+
+    var ledger = document.getElementById('plan-ledger');
+    var note = document.getElementById('plan-note');
+    if (!ledger || !window.AxonCache || !window.fetch) return;
+
+    function fetchPlans() {
+        var controller = window.AbortController ? new window.AbortController() : null;
+        var timer = window.setTimeout(function () {
+            if (controller) controller.abort();
+        }, TIMEOUT);
+
+        return window
+            .fetch(API + '/plans', {
+                headers: { accept: 'application/json' },
+                signal: controller ? controller.signal : undefined
+            })
+            .then(function (response) {
+                if (!response.ok) throw new Error('plans: HTTP ' + response.status);
+                return response.json();
+            })
+            .then(function (plans) {
+                if (!Array.isArray(plans)) throw new Error('plans: not a list');
+                // Only what the section renders is cached. Storing the whole row would
+                // put fields this page has no business holding into localStorage.
+                return plans.map(function (plan) {
+                    return {
+                        name: String(plan.name || plan.key || 'Plan'),
+                        limit: plan.dailyPromptLimit === null ? null : Number(plan.dailyPromptLimit),
+                        amount: Number(plan.priceAmount || 0),
+                        currency: String(plan.currency || 'usd').toUpperCase(),
+                        interval: String(plan.interval || 'month')
+                    };
+                });
+            })
+            .finally(function () {
+                window.clearTimeout(timer);
+            });
+    }
+
+    function money(plan) {
+        if (!plan.amount) return 'Free';
+        // The API stores minor units, the way payment processors do.
+        var major = plan.amount / 100;
+        var shown = major % 1 === 0 ? String(major) : major.toFixed(2);
+        return plan.currency + ' ' + shown + ' a ' + plan.interval;
+    }
+
+    function allowance(plan) {
+        if (plan.limit === null) return 'No daily limit';
+        if (plan.limit === 1) return '1 prompt a day';
+        return plan.limit + ' prompts a day';
+    }
+
+    function render(plans) {
+        if (!plans.length) return;
+
+        var rows = document.createDocumentFragment();
+
+        plans.forEach(function (plan) {
+            var row = document.createElement('div');
+            var name = document.createElement('b');
+            name.textContent = plan.name;
+            var detail = document.createElement('span');
+            // textContent throughout: these strings come off the network, and this page
+            // has no business turning them into markup.
+            detail.textContent = allowance(plan) + ' · ' + money(plan);
+            row.appendChild(name);
+            row.appendChild(detail);
+            rows.appendChild(row);
+        });
+
+        // The row that is not a plan, and the one this page recommends. Kept last and
+        // written here rather than fetched, because it is a statement about the
+        // extension and not a product the server sells.
+        var own = document.createElement('div');
+        var ownName = document.createElement('b');
+        ownName.textContent = 'Your own key';
+        var ownDetail = document.createElement('span');
+        ownDetail.textContent =
+            'Free, unlimited, and nothing you look at reaches us — the default, and what the rest of this page describes';
+        own.appendChild(ownName);
+        own.appendChild(ownDetail);
+        rows.appendChild(own);
+
+        ledger.textContent = '';
+        ledger.appendChild(rows);
+        ledger.removeAttribute('data-plans-fallback');
+    }
+
+    window.AxonCache.wrap('plans', TTL, fetchPlans, { maxStaleMs: MAX_STALE }).then(
+        function (plans) {
+            render(plans);
+
+            // Said out loud, because a cached price is a price that might have moved.
+            var stale = window.AxonCache.getStale('plans');
+            if (note && stale && stale.ageMs > TTL) {
+                note.textContent = 'Plans shown from an earlier visit; the account page has the current ones.';
+                note.hidden = false;
+            }
+        },
+        function () {
+            // Unreachable, timed out, or nothing cached recently enough to trust. The
+            // rows written into index.html stay exactly as they are.
+        }
+    );
 })();
