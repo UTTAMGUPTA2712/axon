@@ -1,178 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy policy — Axon</title>
-    <meta name="description"
-        content="How Axon handles your data: no backend, no analytics, API keys kept in your browser, and page content sent only to the AI provider you configured.">
-    <meta name="author" content="Uttam Gupta">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="https://uttamgupta2712.github.io/axon/privacy.html">
-    <meta name="theme-color" content="#07090c">
-    <meta name="color-scheme" content="dark">
-
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="Axon">
-    <meta property="og:url" content="https://uttamgupta2712.github.io/axon/privacy.html">
-    <meta property="og:title" content="Privacy policy — Axon">
-    <meta property="og:description"
-        content="No backend, no analytics, API keys kept in your browser, and page content sent only to the provider you configured.">
-    <meta property="og:image" content="https://uttamgupta2712.github.io/axon/assets/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://uttamgupta2712.github.io/axon/assets/og-image.png">
-
-    <link rel="icon" href="favicon.ico" sizes="any">
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="manifest" href="site.webmanifest">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://uttamgupta2712.github.io/axon/privacy.html#webpage",
-        "url": "https://uttamgupta2712.github.io/axon/privacy.html",
-        "name": "Privacy policy — Axon",
-        "description": "How Axon handles your data.",
-        "isPartOf": { "@id": "https://uttamgupta2712.github.io/axon/#website" },
-        "about": { "@id": "https://uttamgupta2712.github.io/axon/#app" },
-        "publisher": { "@id": "https://uttamgupta2712.is-a.dev/#uttam" },
-        "inLanguage": "en"
-    }
-    </script>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
-        rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Axon privacy policy has moved</title>
+    <meta name="description" content="Axon has moved to https://axon-ai-assistant.vercel.app.">
+    <link rel="canonical" href="https://axon-ai-assistant.vercel.app/privacy">
+    <meta http-equiv="refresh" content="0; url=https://axon-ai-assistant.vercel.app/privacy">
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        :root { color-scheme: light dark; }
+        body { font: 16px/1.5 system-ui, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f6f7f9; color: #12151c; }
+        a { color: #2b44d6; }
+        @media (prefers-color-scheme: dark) { body { background: #0e1117; color: #e8ecf3; } a { color: #8ea4ff; } }
+    </style>
 </head>
-
 <body>
-    <header class="masthead">
-        <a class="masthead-brand" href="index.html">
-            <img src="icon.png" alt="" width="22" height="22">
-            Axon
-        </a>
-        <nav class="masthead-nav">
-            <a href="index.html">Back to Axon</a>
-            <a href="index.html#keys">Your keys</a>
-            <a href="index.html#questions">Questions</a>
-            <a class="is-install" href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm" target="_blank" rel="noopener">Add to Chrome</a>
-        </nav>
-    </header>
-
-    <main class="spread spread-single">
-        <article class="document">
-            <section class="chapter" style="padding-top:clamp(44px,7vw,86px)">
-                <h1 class="lede-title">Privacy</h1>
-                <p class="lede">Axon has no backend. Your keys stay in your browser, and page content goes only to the
-                    AI provider you configured — never to us, because there is no "us" in the request path.</p>
-                <p class="standfirst"><span>Last updated <b>12 October 2026</b></span></p>
-            </section>
-
-            <section class="chapter">
-                <h2>Information Collection and Use</h2>
-<ul>
-                <li><strong>User Input & Screen Data</strong>: When you trigger the extension, we capture the selected text or a screenshot of your active tab.</li>
-                <li><strong>Personalization Data</strong>: We may store user preferences, facts, and professional details (your "Digital Twin") derived from your interactions to improve response relevance.</li>
-                <li><strong>Processing</strong>: This data is sent directly from your browser to whichever AI provider you've configured for that feature, using your own API key.</li>
-                <li><strong>No External Storage</strong>: We do <strong>not</strong> store, log, or share your screen data, text selections, profile data, or API keys on our servers. Axon has no backend of its own — all data is stored locally in your browser (<code>chrome.storage.sync</code>) or processed ephemerally by the provider you chose.</li>
-            </ul>
-            </section>
-
-            <section class="chapter">
-                <h2>Third-Party Services</h2>
-<p>Axon supports multiple AI providers, and you choose which one handles each feature (Chat, Vision, the intent router, and memory extraction). Depending on your configuration, requests may go to:</p>
-            <ul>
-                <li><strong>Groq</strong> — see <a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener" style="color: var(--primary);">Groq's Privacy Policy</a></li>
-                <li><strong>OpenAI</strong> — see <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener" style="color: var(--primary);">OpenAI's Privacy Policy</a></li>
-                <li><strong>Google Gemini</strong> — see <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--primary);">Google's Privacy Policy</a></li>
-            </ul>
-            <p>Only the provider(s) you've actually configured a key for ever receive your data.</p>
-            </section>
-
-            <section class="chapter">
-                <h2>API Keys</h2>
-<p>Axon is bring-your-own-key: there is no shared or default key. Each key you add is stored locally on your device using Chrome's secure storage API (<code>chrome.storage.sync</code>). It is never transmitted to us or anyone other than the provider it belongs to, for authentication.</p>
-            </section>
-
-            <section class="chapter">
-                <h2>Changes to This Policy</h2>
-<p>We may update this policy from time to time. Any changes will be posted on this page.</p>
-            </section>
-
-            <section class="chapter">
-                <h2>Contact</h2>
-<p>If you have questions about this policy, please contact us via the Chrome Web Store support page or our GitHub repository.</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="icon.png" alt="Axon Logo" width="32" height="32">
-                        <span>Axon</span>
-                    </a>
-                    <p>Your vision layer and digital twin assistant for the web. Powered by BYOK multi-provider AI.</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="index.html#features">Features</a></li>
-                        <li><a href="index.html#how-it-works">How It Works</a></li>
-                        <li><a href="index.html#security">Architecture</a></li>
-                        <li><a href="index.html#faq">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Legal & Trust</h4>
-                    <ul>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm?authuser=1&hl=en" target="_blank" rel="noopener">Chrome Store</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4>Developer</h4>
-                    <ul>
-                        <li><a href="https://github.com/UTTAMGUPTA2712" target="_blank" rel="noopener">GitHub</a></li>
-                        <li><a href="https://www.linkedin.com/in/uttam-gupta-a185a8239/" target="_blank" rel="noopener">LinkedIn / Support</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Axon. All rights reserved.</p>
-                <div class="status-badge">
-                    <span class="status-dot"></span>
-                    <span>All Systems Operational</span>
-            </section>
-
-        </article>
-    </main>
-
-    <footer class="colophon">
-        <div class="colophon-inner">
-            <p class="byline">Axon is built by <b><a href="https://uttamgupta2712.is-a.dev/" target="_blank" rel="noopener">Uttam
-                            Gupta</a></b>. Questions about this policy are welcome there.</p>
-            <nav>
-                <a href="index.html">Axon</a>
-                <a href="https://chromewebstore.google.com/detail/axon-screen-assistant/edhnfkobaggakaghcmogeeginaebcifm" target="_blank" rel="noopener">Chrome Web Store</a>
-                <a href="https://uttamgupta2712.is-a.dev/" target="_blank" rel="noopener">uttamgupta2712.is-a.dev</a>
-            </nav>
-        </div>
-    </footer>
+    <p>Axon has moved. <a href="https://axon-ai-assistant.vercel.app/privacy">Continue to axon-ai-assistant.vercel.app/privacy</a>.</p>
 </body>
-
 </html>
